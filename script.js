@@ -15,15 +15,20 @@ $(document).ready(function() {
     })
 
     function checkText() {
-        var result = document.createElement('p');
-        $(result).html('');
-        var userText = $('#user_input').val();
+      $('#notice').html('');
+      var counter = 0;
         sources.forEach(function(source) {
+            var userText = $('#user_input').val().replace(/\s\s+/g, ' ');
             var checkFor = source.quote;
             if (userText.indexOf(checkFor) > -1) {
+              counter ++;
+              var result = document.createElement('p');
                 $(result).html(`You have stolen from ${source.author}`);
                 $('#notice').append(result);
             }
         })
+        if(counter === 0){
+            $('#notice').html('Wonderful, original prose!');
+        }
     }
 })
