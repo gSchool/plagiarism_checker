@@ -14,6 +14,7 @@ var input = document.getElementById("user_input")
 
 $(document).ready(function(){
   $("#trigger").click(function(){
+    $("#notice").html("")
     for (var i = 0; i < sources.length; i++) {
       if (input.value.toLowerCase().replace(/\s+/g, '').includes(sources[i].quote.toLowerCase().replace(/\s+/g, ''))) {
         var callOut = document.createElement("p")
