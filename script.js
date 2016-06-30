@@ -9,3 +9,17 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+$("#trigger").click((e) => {
+  var userinput = $("#user_input").val().toLowerCase().trim()
+  var stolen = sources.filter((obj) => {
+    return userinput.indexOf(obj.quote.toLowerCase()) != -1
+  })
+  $("#notice").html("")
+  if(stolen.length === 0){
+    $("#notice").html("Good student. nothing stolen.")
+  } else {
+    stolen.forEach((v, k) => {
+      $("#notice").append("Thief! You stole from " + v.author + "<br>")
+    })
+  }
+})
