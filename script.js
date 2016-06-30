@@ -9,3 +9,27 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+
+
+var button = document.getElementById('trigger')
+var userInput = document.getElementById('user_input')
+var bucket = document.getElementById('notice')
+button.addEventListener('click', function(){
+
+
+for (var i = 0; i < sources.length; i++) {
+  var quote = sources[i].quote
+  var y = userInput.value
+  var noSpaces = y.replace(/\s/g, '')
+  var n = quote.indexOf(noSpaces)
+  console.log(n);
+  if(n > -1){
+    console.log("we got it")
+    var newNode = document.createElement("h2")
+    bucket.appendChild(newNode)
+    newNode.innerHTML = "You have stolen from " + sources[i].author
+  }
+}
+
+
+})
