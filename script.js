@@ -8,4 +8,18 @@ var sources = [
   {"author": "Shawn Mendes",
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
-]
+];
+
+$(document).ready(function() {
+  $('#trigger').on("click", function(){
+    $('#notice').empty();
+    for (var i in sources){
+      var author = document.createElement("p");
+      author.innerHTML = "You have stolen from " + sources[i].author;
+      if ($('#user_input').val().indexOf(sources[i].quote) >= 0){
+        $('#notice').append(author)
+        console.log(sources[i].author)
+      }
+    }
+  });
+});
