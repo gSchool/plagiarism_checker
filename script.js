@@ -14,10 +14,14 @@ var input = $('#user_input')
 $('#trigger').click(function() {
   $.each(sources, function(key, value) {
     if (input.val().indexOf(value.quote) != -1) {
-      $('#notice').append('You have stolen from ' + value.author);
+      $('#notice').empty();
+      $('#notice').append('You have stolen from ' + value.author)
     }else {
+      $('#notice').empty();
+      $('#notice').append('You good, fam');
       // console.log('no');
     }
   })
   // console.log(input.val());
+  // $('#notice').this.trigger.removeChild(this);
 })
