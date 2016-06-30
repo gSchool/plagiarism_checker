@@ -13,14 +13,21 @@ var sources = [
 $(document).ready(function() {
   $('#trigger').on("click", function(){
     $('#notice').empty();
+    var check = [];
     for (var i in sources){
-      var quote = sources[i].quote.toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '')
-      var input = $('#user_input').val().toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '')
+      var quote = sources[i].quote.toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '');
+      var input = $('#user_input').val().toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '');
       var author = document.createElement("p");
       author.innerHTML = "You have stolen from " + sources[i].author;
       if (input.indexOf(quote) >= 0){
-        $('#notice').append(author)
+        $('#notice').append(author);
+        check.push(sources[i].author);
       }
+    }
+    if (check.length === 0){
+    var original = document.createElement("p");
+    original.innerHTML = "Wonderful, original prose!";
+    $('#notice').append(original);
     }
   });
 });
