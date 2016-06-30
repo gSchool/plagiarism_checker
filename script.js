@@ -14,24 +14,25 @@ var input = document.getElementById('user_input');
 var notice = document.getElementById('notice');
 
 $(button).on('click',function(){
-  isPlagiarized($(input).val());
+  $(notice).empty();
+  checkPlagiarism($(input).val());
 })
 
-function isPlagiarized(input){
+function checkPlagiarism(input){
   var cheater = false;
   input = input.replace(/\s/g,'');
   sources.forEach(function(source){
     var nospace = source.quote.replace(/\s/g,'');
     if(input.includes(nospace)){
-      var answer = document.createElement('p');
-      $(answer).html('you have stolen from '+source.author);
-      $(answer).appendTo(notice);
+      var response = document.createElement('p');
+      $(response).html('you have stolen from '+source.author);
+      $(response).appendTo(notice);
       cheater = true;
     }
   })
   if(!cheater){
-    var answer = document.createElement('p');
-    $(answer).html('nice work');
-    $(answer).appendTo(notice);
+    var response = document.createElement('p');
+    $(response).html('nice work');
+    $(response).appendTo(notice);
   }
 }
