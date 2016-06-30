@@ -12,11 +12,13 @@ var sources = [
 $("#trigger").click((e) => {
   var userinput = $("#user_input").val().toLowerCase().trim()
   var stolen = sources.filter((obj) => {
-    return obj.quote.toLowerCase() === userinput
+    return userinput.indexOf(obj.quote.toLowerCase()) != -1
   })
   if(stolen.length === 0){
     $("#notice").html("Good student. nothing stolen.")
   } else {
-    $("#notice").html("Thief! You stole from " + stolen[0].author)
+    stolen.forEach((v, k) => {
+      $("#notice").append("Thief! You stole from " + v.author)
+    })
   }
 })
