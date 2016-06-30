@@ -16,8 +16,18 @@ function checker(string){
   $(arr).each(function(i, sent){
     $(sources).each(function(i, obj){
       if(sent === obj.quote.replace(/ /g, '').toLowerCase()){
-        $('#notice').append(`<h4>You have stolen this from ${obj.author}.`)
+        $('#notice').append(`<h4>You have stolen this from ${obj.author}.</h4>`)
       }
     })
+  })
+}
+
+
+function includes(string){
+  $('#notice').empty();
+  $(sources).each(function(i, obj){
+    if(string.includes(obj.quote)){
+      $('#notice').append(`<h4>You have stolen this from ${obj.author}.</h4>`)
+    }
   })
 }
