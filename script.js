@@ -9,3 +9,17 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+
+var input = document.getElementById("user_input")
+
+$(document).ready(function(){
+  $("#trigger").click(function(){
+    for (var i = 0; i < sources.length; i++) {
+      if (input.value.toLowerCase().includes(sources[i].quote.toLowerCase())) {
+        var callOut = document.createElement("p")
+        callOut.innerHTML = "You have stolen from " + sources[i].author
+        document.getElementById("notice").appendChild(callOut)
+      }
+    }
+  })
+})
