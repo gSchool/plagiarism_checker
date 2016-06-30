@@ -8,4 +8,30 @@ var sources = [
   {"author": "Shawn Mendes",
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
-]
+];
+var button = document.getElementById('trigger');
+var input = document.getElementById('user_input');
+var notice = document.getElementById('notice');
+
+$(button).on('click',function(){
+  isPlagiarized($(input).val());
+})
+
+function isPlagiarized(input){
+  var cheater = false;
+  input = input.replace(/\s/g,'');
+  sources.forEach(function(source){
+    var nospace = source.quote.replace(/\s/g,'');
+    if(input.includes(nospace)){
+      var answer = document.createElement('p');
+      $(answer).html('you have stolen from '+source.author);
+      $(answer).appendTo(notice);
+      cheater = true;
+    }
+  })
+  if(!cheater){
+    var answer = document.createElement('p');
+    $(answer).html('nice work');
+    $(answer).appendTo(notice);
+  }
+}
