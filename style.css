@@ -5,4 +5,11 @@ header span{padding-top:10px; color: white; font-size: 22px; }
 main{padding: 20px;}
 footer{}
 .block{display: block}
-.notice{backgrond-color: "pink"}
+
+.notice {
+    backgrond-color: "pink"
+}
+
+/*.result {
+    height: 200px;
+}*/
