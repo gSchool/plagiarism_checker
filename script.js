@@ -14,8 +14,8 @@ $(document).ready(function() {
   $('#trigger').on("click", function(){
     $('#notice').empty();
     for (var i in sources){
-      var quote = sources[i].quote.toLowerCase().replace(/\s/g, '')//.replace(/,/g, "").replace(/\./g,' ');
-      var input = $('#user_input').val().toLowerCase().replace(/\s/g, '')
+      var quote = sources[i].quote.toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '')
+      var input = $('#user_input').val().toLowerCase().replace(/\s/g, '').replace(/,/g, "").replace(/\./g, '')
       var author = document.createElement("p");
       author.innerHTML = "You have stolen from " + sources[i].author;
       if (input.indexOf(quote) >= 0){
