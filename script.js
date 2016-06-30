@@ -15,7 +15,7 @@ var input = document.getElementById("user_input")
 $(document).ready(function(){
   $("#trigger").click(function(){
     for (var i = 0; i < sources.length; i++) {
-      if (input.value.toLowerCase().includes(sources[i].quote.toLowerCase())) {
+      if (input.value.toLowerCase().replace(/\s+/g, '').includes(sources[i].quote.toLowerCase().replace(/\s+/g, ''))) {
         var callOut = document.createElement("p")
         callOut.innerHTML = "You have stolen from " + sources[i].author
         document.getElementById("notice").appendChild(callOut)
