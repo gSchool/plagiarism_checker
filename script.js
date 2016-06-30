@@ -9,3 +9,15 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+
+var input = $('#user_input')
+$('#trigger').click(function() {
+  $.each(sources, function(key, value) {
+    if (input.val().indexOf(value.quote) != -1) {
+      $('#notice').append('You have stolen from ' + value.author);
+    }else {
+      // console.log('no');
+    }
+  })
+  // console.log(input.val());
+})
