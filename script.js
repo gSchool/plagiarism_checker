@@ -10,18 +10,14 @@ var sources = [
   }
 ]
 
-var input = $('#user_input')
 $('#trigger').click(function() {
+  $('#notice').empty();
   $.each(sources, function(key, value) {
-    if (input.val().indexOf(value.quote) != -1) {
-      $('#notice').empty();
-      $('#notice').append('You have stolen from ' + value.author)
-    }else {
-      $('#notice').empty();
-      $('#notice').append('You good, fam');
-      // console.log('no');
+    var input = $("#user_input").val().trim();
+    input = input.replace(/\s\s+/g, ' ');
+    if (input.indexOf(value.quote) != -1) {
+      $('#notice').append('<br>You have stolen from ' + value.author)
     }
   })
   // console.log(input.val());
-  // $('#notice').this.trigger.removeChild(this);
 })
