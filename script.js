@@ -12,6 +12,7 @@ var sources = [
 $(document).ready(function(){
 
   $('#trigger').on('click', function(){
+    var counter = 0
     var text = $('textarea').val()
     sources.forEach(source => {
       var p = document.createElement('p')
@@ -19,9 +20,17 @@ $(document).ready(function(){
       var author = source.author;
       var re = new RegExp(quote,"g");
       if (text.match(quote)){
-        p = "You have stolen from "+author
-        $('#notice').append(p + "<br>")
+        counter++
+        $(p).html("You have stolen from "+author)
+        $('#notice').append(p)
       }
   })
+
+  if (counter === 0) {
+    console.log("nice");
+    var p = document.createElement("p")
+    $(p).html("Wonderful, original prose!")
+    $('#notice').append(p)
+  }
 })
 })
