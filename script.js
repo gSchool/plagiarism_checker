@@ -12,12 +12,8 @@ var sources = [
 
 function checker(string){
   $('#notice').empty();
-  var arr = string.split('.');
-  var arr2 = arr.map(function(val, i){
-    return (val.replace(/ /g, '').replace(/\n+/g, "").toLowerCase())
-
-  })
-  $(arr2).each(function(i, sent){
+  var arr = string.replace(/ /g, '').replace(/\n+/g, "").toLowerCase().split('.');
+  $(arr).each(function(i, sent){
     $(sources).each(function(i, obj){
       if(sent === obj.quote.replace(/ /g, '').toLowerCase()){
         $('#notice').append(`<h4>You have stolen this from ${obj.author}.`)
