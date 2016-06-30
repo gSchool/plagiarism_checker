@@ -9,3 +9,15 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+
+$("#trigger").click(function(){
+  var input = $("#user_input").val();
+  var arr = input.split(". ");
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < sources.length; j++){
+      if (arr[i].replace(/\./g, '') === sources[j].quote.replace(/\./g, '')){
+        $("<p>You've stolen from " + sources[j].author + ".</p>").appendTo("#notice")
+      }
+    }
+  }
+})
