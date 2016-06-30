@@ -15,10 +15,12 @@ var submit = document.getElementById('trigger');
 
 
 submit.addEventListener('click', function() {
+  notice.innerHTML = '';
   var input = document.getElementById('user_input').value.toLowerCase().replace(/\s/g, '');
 
   sources.forEach(function(obj){
-    var tempQuote = obj.quote.toLowerCase().replace(/\s/g, '');
+    var tempQuote = obj.quote.toLowerCase().replace(/\s/g, '').replace(/\./g, '');
+    console.log(tempQuote);
     if (input.indexOf(tempQuote) > -1){
       var createP = document.createElement('p')
       createP.innerHTML = 'You stole some of this work from ' + obj.author + ". Please write in your own words.";
