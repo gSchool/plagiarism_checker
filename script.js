@@ -9,3 +9,21 @@ var sources = [
    "quote": 'There is nothing that scares me more than, like, being in the ocean by myself.'
   }
 ]
+
+var input = $("#user_input");
+var trigger = $("#trigger");
+var notice = $("#notice");
+
+$(trigger).click(function(){
+  $(notice).html("");
+  var string = input.val().trim().replace(/\s\s+/g, ' ');
+  sources.forEach(function(x, i){
+    console.log(string);
+    if (string.indexOf(x.quote) > -1) {
+      $(notice).append("<h3>You have stolen from " + x.author + "!</h3>");
+    }
+    else {
+      console.log("no theft");
+    }
+  })
+})
