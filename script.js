@@ -17,7 +17,6 @@ function checker(string){
     return (val.replace(/ /g, '').replace(/\n+/g, "").toLowerCase())
 
   })
-  console.log(arr2);
   $(arr2).each(function(i, sent){
     $(sources).each(function(i, obj){
       if(sent === obj.quote.replace(/ /g, '').toLowerCase()){
